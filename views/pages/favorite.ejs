@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>favorite</title>
+</head>
+<!-- the code here will be very similar to the code in the home page  -->
+<!-- so copy and paste the code in the <main> part in index,.ejs and remove the form part and its div  -->
+<body>
+    <header>
+        <h1> My favorite digimons</h1>
+        <nav>
+        </nav>
+    </header>
+<main>
+    <div class="allContainer">
+        <%data.forEach(val=>{%>
+        <div class="container">  
+    
+            <h3><%=val.name%></h3>
+            <img src="<%=val.image%>" alt="">
+            <p><%=val.level%></p>
+            <!-- making (show details ) button --> 
+           <a href="/details/<%=val.id%>"><button>Show details</button></a><!-- we must give id for each pokemon(its show details button) so the route after clicking on one pokemon must be /details/id for this pokemon  -->
+                                         <!-- each pokemon already will have id because in the favourite data comes from the db not from the api, and each thing in db always have an id -->
+        </div>                        <!-- now u should do drop table and create table by the command : psql -d digimons_test -f data/schema.sql  --> 
+                                      <!-- now we should go to server.js to make route defi. and route handler(function) for the route /details  -->
+        <%})%>
+    </div>
+</main>
+
+</body>
+</html>
+

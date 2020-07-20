@@ -1,0 +1,55 @@
+<!-- this is the home page  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    <!-- for homeHandler (index page) -->
+<!--  we need to check that everything is okay until now so we will write <%console.log(data)%> and we will have empty page on browser and all the data from url will be in the terminal so everything is okayyyyyyyyy
+    ** important : console.log result will show in terminal in the server and anywhere , but in app.js it is result will show in the browser
+-->
+
+<header>
+    <h1> All digimons</h1>
+    <nav>
+    </nav>
+</header>
+<main>
+<div class="allContainer">
+    <!-- to render img and name and level -->
+    <%data.forEach(val=>{%>
+    <div class="container">  <!-- the cards will be here , so the looping (foreach will be done on this ) -->
+
+        <h3><%=val.name%></h3>
+        <img src="<%=val.image%>" alt="">
+        <p><%=val.level%></p>
+                    <!-- end -->
+                    <!-- this div inside the outer div for the form to get the queries in the form and add them to db  -->
+                   <!-- the form for adding element to db because we cant add to db until we have form takes the the data for this element (collect )  -->
+                  <!-- the form will do the get for the values for name,image,level  -->
+        <div>
+               <button class="show">SELECT</button><!-- this to make the form hidden AND give a class for the form below and give class for button, then adding link for jquery and app.js like below  , then go to app.js to write the code -->
+            <form action="/addToDb" method="GET" class="form"> <!-- action contains the route that we use to do the inserting to db when i click the button // GET is the default and we use it when we havent secure or sensitive data or info because the query will show in the url-->
+
+            <input type="text" name="name" value="<%=val.name%>"> <!-- name : is the query that i want to collect in the route and the values of it from the schema-->
+            <input type="text" name="image" value="<%=val.image%>"><!-- we must add value attribute because without it the form  cant do get to anything  and give error-->
+
+            <input type="text" name="level" value="<%=val.level%>">
+            <input type="submit" value="ADD TO DATABASE"><!-- this mean that when i click this ADD button THE action will execute-->
+<!-- noteee : the action /addToDb is not exist yet so we need now to make it on server.js  -->
+            </form>
+        </div>
+    </div>
+    <%})%>
+</div>
+</main>
+<!-- for hidden form -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./js/app.js"></script> <!-- index is in the root of views so it is also in the root of public , so we will put ./ then js/app.js-->
+
+</body>
+</html>
