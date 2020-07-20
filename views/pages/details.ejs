@@ -1,0 +1,59 @@
+<!-- this is the details page  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+</head>
+<!-- go to favourite and copy $ paste it is code here then edit it  -->
+<body>
+    <header>
+        <h1>  digimon details</h1>
+        <nav>
+        </nav>
+    </header> 
+<main> 
+    <!-- note : there is no forEach here because it is just one element  -->
+    <!-- we will use data instead for val because val for iteration  -->
+    <div class="allContainer">
+        <div class="container">  
+     <!-- rendering for one pokemon details -->
+            <h3><%=data.name%></h3>
+            <img src="<%=data.image%>" alt="">
+            <p><%=data.level%></p>
+                  <!-- end -->
+                  <!-- now we need to do a form to make the updating process -->
+                  <div>  <!-- we added it to make hidden form-->
+                    <button class="showing">update digimon</button>  <!-- for the hidden form  -->
+
+                <form action="/update/<%=data.id%>?_method=put" method="POST" class="detForm"><!-- we make the action and its necessary to use id for update and delete coz we have just one thing as we said  -->
+                                               <!--the _method in updating is put and for delete is delete -->
+                               <!-- importanttttt ::: always with put and delete use POST method   -->
+                               <!-- _method : this for methid override for update and delete and this name from server.js in //uses , you can name it something else  -->
+  
+                   <input type="text" name="name" value="<%=data.name%>">
+                   <input type="text" name="image" value="<%=data.image%>">
+                   <input type="text" name="level" value="<%=data.level%>">
+                   <input type="submit" value="Update">
+                   <!-- after doing the form we need now to go to server.js and make route definit. and route handlers (function) for updating process -->
+
+                </form>
+                </div>
+                <!-- adding delete button -->
+                <!-- we need to put it in a form coz we want action and this action different for sure -->
+                <form action="/delete/<%=data.id%>?_method=delete" method="POST">
+                   <button>Delete</button>
+                </form>
+                <!-- end of delete section -->
+                <!-- now this action needs route defin. and route handler(fun) so go to server.js and do that -->
+        </div>                        
+                                      
+    </div>
+</main>
+<!-- for hidden form  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../js/app.js"></script>
+
+</body>
+</html>
