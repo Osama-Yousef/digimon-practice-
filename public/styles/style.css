@@ -1,0 +1,28 @@
+body{
+    background-color: rgb(48, 39, 39);
+}
+h1{
+    background-color: crimson;
+    text-align: center;
+}
+.allContainer{
+    margin: 1em auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.container{
+    width: 30%;
+    /* height: 32em; */
+    background-color: coral;
+    margin: 1em;
+    text-align: center;
+    box-shadow: 5px 5px 5px 5px rgb(151, 27, 27);
+}
+.container >img{
+    width: 200px;
+    height:200px;
+    border-radius: 10%;
+    border: 2px solid rgb(151, 27, 27);
+}
