@@ -189,7 +189,7 @@ client.query(sql,safeValue).then(()=>{
 )
 
 }
-
+ 
 
 // now exam is finished but we want to go to index.ejs to make the form hidden
 // adding  button with class and give class for the form 
